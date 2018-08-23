@@ -1,0 +1,11 @@
+            IF [OPTION("FR_Przyciecie_D_Z35","bez")]THEN
+                SETOPTION("MAT Ramy D","PPV-101-218-14");
+            ENDIF
+            IF [OPTION("FR_Przyciecie_D_Z35","0")]THEN
+                SETOPTION("MAT Ramy D","PPV-101-218-14_00");
+            ENDIF
+
+            SETOPTION("MAT Ramy D","PPV-101-218-14_00");
+            OPTION("FR_Przyciecie_D_Z35","bez")
+            OPTION("FRPrzyciecie","bez2")
+            SETOPTION("MAT Ramy D","PPV-101-218-14_00");

@@ -1,0 +1,28 @@
+%======================================================================================================================
+%Jednostki Napędy
+IF[OPTION("PrefAntrieb","Przekładnia korbowa")] THEN
+    WORKFORCE("RO_ROLETY",[100]);
+ENDIF
+SETOPTION("segment","9005ST");
+IF[OPTION("PrefAntrieb","bez")] THEN
+    SETERROR([7064]);
+ENDIF
+
+SCRIPT("STD-NSTD-Ra-Sk","");
+
+IF[OUTERCOLOUR("v9005ST")] THEN
+    SETOPTION("segment2","9005ST");
+ENDIF
+
+CPIECE("ROS-x799001",[10]);
+CPIECE("ROS-x799-001",[1]);CPIECE("RIS-x981-002",[1]); % Przelotka paska braz
+
+IF[OPTION("SW_06_000 System","WINERGETIC")]THEN
+    IF[OPTION("SW_06_888 Typ otwierania","Do wewnątrz")]THEN
+        SETOPTION("600 MAT Skrzydła","PPV-105-380");
+    ENDIF
+    IF[OPTION("SW_06_888 Typ otwierania","Na zewnątrz")]THEN
+        SETOPTION("600 MAT Skrzydła","PPV-105-381");
+    ENDIF
+ENDIF
+SCRIPT("STD-NSTD-Ra-Sk","");

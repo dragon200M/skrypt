@@ -1,0 +1,52 @@
+IF[OPTION("SW_06_000 System","WINERGETIC")]THEN
+    IF[OPTION("SW_06_888 Typ otwierania","Do wewnątrz")]THEN
+        SETOPTION("600 MAT Skrzydła","PPV-105-380");
+    ENDIF
+    IF[OPTION("SW_06_888 Typ otwierania","Na zewnątrz")]THEN
+        SETOPTION("600 MAT Skrzydła","PPV-105-381");
+    ENDIF
+ENDIF
+SCRIPT("STD-NSTD-Ra-Sk","");
+CPIECE ("PIV-109-076",[var]);
+CPIECE_EX_U("PII-Podkładka_5-52",[IL_3_4],"",[1]);
+        SETERROR([6001]);
+        SETERROR ([6001]);
+            SETNUMERICOPTION("Quantity",[1]);
+            SETNUMERICOPTION("Quantity2",[1]);
+                        SETNUMERICOPTION("AlturaCajon",[WS]);
+LET N_delta_wew = [GETNUMERICOPTION ("Delta_wew")];
+GETNUMERICOPTION("SW_Lego G Th");
+    PIECE_EX_U("PIV-141-448",[2],"",[1]);
+    PIECE_EX_U("PIV-141-488",[2],"",[1]);
+PIECE("POI-35A/2200",[1]);
+PIECE("",[1]);
+%SURFACE("Druk.RPS-x837",[1],[L+SWP-SLP],[CWP]); -- nie działa dodać expresion
+SURFACE("Druk.RPS-x837",[1],[SLP],[CWP]);
+SURFACE_EX("PIV-304-700/001",[1],[SZER_C],[TH_D],"DÓŁ");
+%SURFACE_EX("PIV-304-700/001",[2],[(SZER],[TH_D],"DÓŁ"); --( powoduje bład
+        SURFACE_EX_U("PII-SCURETTI",[1],[W],[H],"Prawe",[0]);
+        SURFACE_EX_U("PII-SCURETTI",[1],[W],[H],"Lewe",[0]);
+%CROD("RIB-DIO1372",[1],[L+SWP-SLP+30],[90],[90]);
+        CROD("RIB-DIO1372",[1],[L],[90],[0]);
+%CROD_EX("PIV-304-100L2.druk/001",[1],[SP-64],[90],[90],[180],[90],[90],"");
+CROD_EX("PIV-304-100L.druk/001",[1],[SP],[90],[90],[180],[90],[90],"");
+        CROD_EX_U("Dop_Zarga_114.020",[1],[L1],[90],[90],[90],[90],[90],"",[1]);
+        CROD_EX_U("Dop_Zarga_114.020 - B/K",[1],[L1],[90],[90],[90],[90],[90],"",[1]);
+%ROD("RPB-FIN364L-",[1],[L+SWP-SLP],[90],[90]);
+        ROD("RPB-FIN364L-",[1],[SLP],[90],[90]);
+ROD_EX_U ("Dop_Metr",[5],[L1],[360],[360],[0],[0],[0],"",[1]);
+ROD_EX_U ("Dop_Metr",[44],[L1],[360],[360],[0],[0],[0],"",[1]);
+CINNROD_EX_U ("PPV-107-208",[2],[L1],[90],[90],[90],[90],[90],"",[1]);
+COUTROD_EX_U ("PPV-114-020",[1],[L1],[90],[90],[90],[90],[90],"",[1]);
+            MESSAGE ("Klamka oraz pochwyt dostępne tylko w kolorze Stal Szlachetna.Do ukrycia kolor klamki zewnętrznej");
+            MESSAGE ("Klamka oraz pochwyt dostępne tylko w kolorze Stal Szlachetna.Do ukrycia kolor klamki zewnętrznej");
+            MESSAGE ("Klamka oraz pochwyt dostępne tylko w kolorze Stal Szlachetna.Do ukrycia kolor klamki zewnętrznej");
+            MESSAGE ("Klamka oraz pochwyt dostępne tylko w kolorze Stal Szlachetna.Do ukrycia kolor klamki zewnętrznej");
+    WORKFORCE("KOMPLETACJA",[10]);
+    WORKFORCE("KOMPLETACJA",[10]);
+
+    IF [EXISTSVARIABLE("L1")]THEN
+    ENDIF
+    %IF [EXISTSVARIABLE("L2")=FALSE]THEN ENDIF
+    SETDIMENSION("S",[ab]);
+%SETDIMENSION("CD_WS_S1",[NM_1 / 2]);');
