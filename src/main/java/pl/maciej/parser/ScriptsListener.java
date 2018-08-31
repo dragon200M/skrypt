@@ -357,4 +357,14 @@ public interface ScriptsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitArg(ScriptsParser.ArgContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ScriptsParser#nazwa}.
+	 * @param ctx the parse tree
+	 */
+	void enterNazwa(ScriptsParser.NazwaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ScriptsParser#nazwa}.
+	 * @param ctx the parse tree
+	 */
+	void exitNazwa(ScriptsParser.NazwaContext ctx);
 }

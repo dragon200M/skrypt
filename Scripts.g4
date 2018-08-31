@@ -32,7 +32,8 @@ compilationUnit: (opcja
  | message
  | workforce
  | existVar
- | setdimension)* EOF;
+ | setdimension
+ | nazwa)* EOF;
 
 ifrule: IF LBRACKET (opcja | variable | existVar) RBRACKET THEN (setOpcja | ifrule)* ENDIF;
 opcja: OPTION LEFT ID COMMA ID RIGHT;
@@ -68,7 +69,7 @@ workforce: WORKFORCE LEFT ID COMMA arg RIGHT SEMICOLON;
 existVar: EXISTSVARIABLE LEFT ID RIGHT;
 setdimension: SETDIMENSION LEFT ID COMMA arg RIGHT SEMICOLON;
 arg: LBRACKET (NUMBER | DECIMAL | VAR) RBRACKET;
-
+nazwa: NAZWA LEFT ID RIGHT;
 
 
 IF: 'IF';
@@ -114,6 +115,7 @@ CINNROD_EX_U: 'CINNROD_EX_U';
 COUTROD_EX_U: 'COUTROD_EX_U';
 MESSAGE:'MESSAGE';
 SCRIPT: 'SCRIPT';
+NAZWA: 'NAZWA';
 WORKFORCE:'WORKFORCE';
 MH:'MH';
 ROUND:'ROUND';

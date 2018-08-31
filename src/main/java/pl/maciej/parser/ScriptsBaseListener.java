@@ -431,6 +431,18 @@ public class ScriptsBaseListener implements ScriptsListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitArg(ScriptsParser.ArgContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNazwa(ScriptsParser.NazwaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNazwa(ScriptsParser.NazwaContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

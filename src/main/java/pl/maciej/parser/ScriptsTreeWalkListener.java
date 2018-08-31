@@ -2,6 +2,7 @@ package pl.maciej.parser;
 
 import org.antlr.v4.runtime.tree.TerminalNode;
 import pl.maciej.parser.domain.ElementHolder;
+import pl.maciej.parser.domain.FunctionTypes;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -22,9 +23,9 @@ public class ScriptsTreeWalkListener extends ScriptsBaseListener {
         final TerminalNode option = ctx.ID(0);
         final TerminalNode valor = ctx.ID(1);
         ElementHolder el = new ElementHolder();
-        el.setTyp("SETOPTION");
-        el.setName(option.getText());
-        el.setValue(valor.getText());
+        el.setTyp(FunctionTypes.SETOPTION);
+        el.setName(removeDoubleQuota(option.getText()));
+        el.setValue(removeDoubleQuota(valor.getText()));
         elements.add(el);
     }
 
@@ -32,9 +33,8 @@ public class ScriptsTreeWalkListener extends ScriptsBaseListener {
     public void exitScriptLink(ScriptsParser.ScriptLinkContext ctx) {
         final TerminalNode script = ctx.ID(0);
         ElementHolder el =  new ElementHolder();
-        el.setTyp("SCRIPT");
-        el.setName(script.getText());
-        el.setValue("");
+        el.setTyp(FunctionTypes.SCRIPT);
+        el.setValue(removeDoubleQuota(script.getText()));
         elements.add(el);
     }
 
@@ -43,9 +43,9 @@ public class ScriptsTreeWalkListener extends ScriptsBaseListener {
         final TerminalNode option = ctx.ID(0);
         final TerminalNode valor = ctx.ID(1);
         ElementHolder el = new ElementHolder();
-        el.setTyp("OPTION");
-        el.setName(option.getText());
-        el.setValue(valor.getText());
+        el.setTyp(FunctionTypes.OPTION);
+        el.setName(removeDoubleQuota(option.getText()));
+        el.setValue(removeDoubleQuota(valor.getText()));
         elements.add(el);
     }
 
@@ -56,7 +56,7 @@ public class ScriptsTreeWalkListener extends ScriptsBaseListener {
         final TerminalNode quantity = ctx.arg().NUMBER();
         final TerminalNode var = ctx.arg().VAR();
         ElementHolder el = new ElementHolder();
-        el.setTyp("CPIECE");
+        el.setTyp(FunctionTypes.CPIECE);
         el.setName(base.getText());
         if(quantity != null){
             el.setValue(quantity.getText());
@@ -64,7 +64,16 @@ public class ScriptsTreeWalkListener extends ScriptsBaseListener {
         if(var != null){
             el.setValue(var.getText());
         }
-        elements.add(el);
+       // elements.add(el);
+
+
+    }
+
+    public String removeDoubleQuota(String str){
+        if(str.charAt(0) == '"' && str.charAt(str.length()-1) == '"'){
+            str = str.substring(1,str.length()-1);
+        }
+        return str;
     }
 
 
