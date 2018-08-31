@@ -2806,6 +2806,7 @@ public class ScriptsParser extends Parser {
 		public TerminalNode LEFT() { return getToken(ScriptsParser.LEFT, 0); }
 		public TerminalNode ID() { return getToken(ScriptsParser.ID, 0); }
 		public TerminalNode RIGHT() { return getToken(ScriptsParser.RIGHT, 0); }
+		public TerminalNode SEMICOLON() { return getToken(ScriptsParser.SEMICOLON, 0); }
 		public NazwaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2834,6 +2835,8 @@ public class ScriptsParser extends Parser {
 			match(ID);
 			setState(483);
 			match(RIGHT);
+			setState(484);
+			match(SEMICOLON);
 			}
 		}
 		catch (RecognitionException re) {
@@ -2848,7 +2851,7 @@ public class ScriptsParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3;\u01e8\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3;\u01e9\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
@@ -2880,15 +2883,15 @@ public class ScriptsParser extends Parser {
 		"\3\36\3\36\3\36\3\36\3\36\3\37\3\37\3\37\3\37\3\37\3\37\3\37\3\37\3\37"+
 		"\3\37\3\37\3\37\3\37\3\37\3\37\3\37\3\37\3\37\3\37\3\37\3\37\3\37\3\37"+
 		"\3\37\3 \3 \3 \3 \3 \3 \3!\3!\3!\3!\3!\3!\3!\3!\3\"\3\"\3\"\3\"\3\"\3"+
-		"#\3#\3#\3#\3#\3#\3#\3#\3$\3$\3$\3$\3%\3%\3%\3%\3%\3%\2\2&\2\4\6\b\n\f"+
-		"\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<>@BDFH\2\3\4\2\64\65"+
-		"99\2\u01e8\2n\3\2\2\2\4s\3\2\2\2\6\u0085\3\2\2\2\b\u008c\3\2\2\2\n\u0094"+
-		"\3\2\2\2\f\u009c\3\2\2\2\16\u00a6\3\2\2\2\20\u00aa\3\2\2\2\22\u00ac\3"+
-		"\2\2\2\24\u00b1\3\2\2\2\26\u00b6\3\2\2\2\30\u00bb\3\2\2\2\32\u00c0\3\2"+
-		"\2\2\34\u00c8\3\2\2\2\36\u00d4\3\2\2\2 \u00da\3\2\2\2\"\u00e2\3\2\2\2"+
-		"$\u00e7\3\2\2\2&\u00f3\3\2\2\2(\u00fb\3\2\2\2*\u0107\3\2\2\2,\u0113\3"+
-		"\2\2\2.\u0121\3\2\2\2\60\u0131\3\2\2\2\62\u013f\3\2\2\2\64\u0155\3\2\2"+
-		"\2\66\u016d\3\2\2\28\u017b\3\2\2\2:\u0193\3\2\2\2<\u01ab\3\2\2\2>\u01c3"+
+		"#\3#\3#\3#\3#\3#\3#\3#\3$\3$\3$\3$\3%\3%\3%\3%\3%\3%\3%\2\2&\2\4\6\b\n"+
+		"\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<>@BDFH\2\3\4\2\64"+
+		"\6599\2\u01e9\2n\3\2\2\2\4s\3\2\2\2\6\u0085\3\2\2\2\b\u008c\3\2\2\2\n"+
+		"\u0094\3\2\2\2\f\u009c\3\2\2\2\16\u00a6\3\2\2\2\20\u00aa\3\2\2\2\22\u00ac"+
+		"\3\2\2\2\24\u00b1\3\2\2\2\26\u00b6\3\2\2\2\30\u00bb\3\2\2\2\32\u00c0\3"+
+		"\2\2\2\34\u00c8\3\2\2\2\36\u00d4\3\2\2\2 \u00da\3\2\2\2\"\u00e2\3\2\2"+
+		"\2$\u00e7\3\2\2\2&\u00f3\3\2\2\2(\u00fb\3\2\2\2*\u0107\3\2\2\2,\u0113"+
+		"\3\2\2\2.\u0121\3\2\2\2\60\u0131\3\2\2\2\62\u013f\3\2\2\2\64\u0155\3\2"+
+		"\2\2\66\u016d\3\2\2\28\u017b\3\2\2\2:\u0193\3\2\2\2<\u01ab\3\2\2\2>\u01c3"+
 		"\3\2\2\2@\u01c9\3\2\2\2B\u01d1\3\2\2\2D\u01d6\3\2\2\2F\u01de\3\2\2\2H"+
 		"\u01e2\3\2\2\2Jm\5\6\4\2Km\5\b\5\2Lm\5\4\3\2Mm\5\n\6\2Nm\5\32\16\2Om\5"+
 		"\34\17\2Pm\5\36\20\2Qm\5 \21\2RS\5\"\22\2ST\7\67\2\2Tm\3\2\2\2Um\5$\23"+
@@ -3002,8 +3005,8 @@ public class ScriptsParser extends Parser {
 		"\u01d9\78\2\2\u01d9\u01da\7\66\2\2\u01da\u01db\5F$\2\u01db\u01dc\7\23"+
 		"\2\2\u01dc\u01dd\7\67\2\2\u01ddE\3\2\2\2\u01de\u01df\7\4\2\2\u01df\u01e0"+
 		"\t\2\2\2\u01e0\u01e1\7\5\2\2\u01e1G\3\2\2\2\u01e2\u01e3\7.\2\2\u01e3\u01e4"+
-		"\7\22\2\2\u01e4\u01e5\78\2\2\u01e5\u01e6\7\23\2\2\u01e6I\3\2\2\2\blnx"+
-		"~\u0080\u00a2";
+		"\7\22\2\2\u01e4\u01e5\78\2\2\u01e5\u01e6\7\23\2\2\u01e6\u01e7\7\67\2\2"+
+		"\u01e7I\3\2\2\2\blnx~\u0080\u00a2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

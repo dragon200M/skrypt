@@ -11,11 +11,23 @@ import java.util.Queue;
  * Created by maciej on 12.08.18.
  */
 public class ScriptsTreeWalkListener extends ScriptsBaseListener {
+
+    private String skryptNazwa = "";
     private Queue<ElementHolder> elements = new ArrayDeque<>();
 
     @Override
     public void exitCompilationUnit(ScriptsParser.CompilationUnitContext ctx) {
         super.exitCompilationUnit(ctx);
+    }
+
+    @Override
+    public void exitNazwa(ScriptsParser.NazwaContext ctx) {
+        final TerminalNode skryptName = ctx.ID();
+
+        if(null != skryptName){
+            skryptNazwa = removeDoubleQuota(skryptName.getText());
+        }
+
     }
 
     @Override
@@ -76,7 +88,9 @@ public class ScriptsTreeWalkListener extends ScriptsBaseListener {
         return str;
     }
 
-
+    public String getSkryptNazwa() {
+        return skryptNazwa;
+    }
 
     public Queue<ElementHolder> getElements() {
         return elements;

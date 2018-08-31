@@ -1,0 +1,10 @@
+NAZWA("FR_Napędy SOL R1 1w2p_17");
+
+    IF [OPTION("IT_SŁUPEK","Szeroki statyczny")] THEN
+        SETOPTION("MAT Słupki","PPV-102-238");
+        SETOPTION("Dop_102.238_Ra","Wyc_102.238.3_Ra");
+        SETOPTION("MAT Stal 238","PWV-113-271-4");
+    ENDIF
+
+    SCRIPT("PL_Kolor_N_ALU","");
+        SCRIPT("Wybór uszczelek","");

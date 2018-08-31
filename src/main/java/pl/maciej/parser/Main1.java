@@ -34,7 +34,7 @@ public class Main1 {
 //        InputStream strStream = new ByteArrayInputStream(sourceStr.getBytes(Charset.forName("UTF-8")));
         InputStream strStream =
                 new ByteArrayInputStream
-                        (Files.readAllBytes(new File("data/test_2").toPath()));
+                        (Files.readAllBytes(new File("data/newFile").toPath()));
 
         CharStream stream = CharStreams.fromStream(strStream);
         ScriptsLexer lexer = new ScriptsLexer(stream);
@@ -45,10 +45,16 @@ public class Main1 {
         parser.addParseListener(listener);
         BaseErrorListener errorListener = new ScriptErrorListener();
         parser.addErrorListener(errorListener);
+        parser.removeErrorListeners();
         parser.compilationUnit();
 
-
-        listener.getElements().forEach(el -> System.out.println(el));
+        System.out.println(listener.getSkryptNazwa());
+        Gson gson = new Gson();
+        System.out.println(gson.toJson(listener.getElements()));
+        listener.getElements().forEach(el -> {
+            String obj = gson.toJson(el);
+            System.out.println(obj);
+        });
 //WItam
 
     }
